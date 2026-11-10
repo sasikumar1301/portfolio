@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sasi Kumar Karikuti — Software Engineer (Python, FastAPI, React, Vision AI)</title>
+    <meta name="description" content="Sasi Kumar Karikuti is a Software Engineer building Python/FastAPI backends, edge vision AI on Raspberry Pi and Jetson, and React interfaces for the process industry. Open to remote roles." />
+    <meta name="author" content="Sasi Kumar Karikuti" />
+    <meta name="theme-color" content="#070A12" />
+    <!-- TODO: replace https://your-domain.example/ here, in public/robots.txt and in public/sitemap.xml -->
+    <link rel="canonical" href="https://your-domain.example/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Sasi Kumar Karikuti — Software Engineer" />
+    <meta property="og:description" content="Python/FastAPI backends, edge vision AI, and React interfaces for the process industry." />
+    <meta property="og:url" content="https://your-domain.example/" />
+    <meta property="og:image" content="https://your-domain.example/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sasi Kumar Karikuti — Software Engineer" />
+    <meta name="twitter:description" content="Python/FastAPI backends, edge vision AI, and React interfaces for the process industry." />
+    <meta name="twitter:image" content="https://your-domain.example/og.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sasi Kumar Karikuti",
+        "jobTitle": "Software Engineer",
+        "url": "https://your-domain.example/",
+        "email": "mailto:karikutisasikumar1301@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ananthapur", "addressCountry": "IN" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "G. Pulla Reddy Engineering College" },
+        "knowsAbout": ["Python", "FastAPI", "PostgreSQL", "React", "Computer Vision", "YOLO", "Edge AI"],
+        "sameAs": ["https://www.linkedin.com/in/sasikumar1301/", "https://github.com/sasikumar1301"]
+      }
+    </script>
+
+    <!-- Apply the saved or system theme before first paint to avoid a flash. -->
+    <script>
+      try {
+        var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-bs-theme", t);
+      } catch (e) {}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts (display=swap) load after the first contentful paint, so they never compete with the
+         app bundle. First paint uses system fonts; once every face is ready, html.fonts switches all three
+         families at once: one reflow instead of one per font file. -->
+    <script>
+      (function () {
+        var started = false;
+        function loadFonts() {
+          if (started) return;
+          started = true;
+          var link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.href = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap";
+          link.onload = function () {
+            var faces = ["400 1em Inter", "500 1em Inter", "600 1em Inter", "500 1em 'Space Grotesk'", "700 1em 'Space Grotesk'", "400 1em 'JetBrains Mono'", "500 1em 'JetBrains Mono'"];
+            Promise.all(faces.map(function (f) { return document.fonts.load(f); }))
+              .then(function () { document.documentElement.classList.add("fonts"); }, function () {});
+          };
+          document.head.appendChild(link);
+        }
+        try {
+          new PerformanceObserver(function (list) {
+            if (list.getEntriesByName("first-contentful-paint").length) setTimeout(loadFonts, 0);
+          }).observe({ type: "paint", buffered: true });
+        } catch (e) {}
+        addEventListener("load", function () { setTimeout(loadFonts, 2500); }); // fallback without paint timing
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript><p style="padding:1rem">Sasi Kumar Karikuti — Software Engineer. Email: karikutisasikumar1301@gmail.com</p></noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
