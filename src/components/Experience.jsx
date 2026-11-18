@@ -1,4 +1,5 @@
 import { certifications, education, experience, profile, sections, ui } from "../data";
+import { experienceLabel } from "../hooks";
 import { Reveal, Section } from "./ui";
 
 export default function Experience() {
@@ -10,7 +11,9 @@ export default function Experience() {
             {experience.map((job) => (
               <li key={job.role + job.period} className="tl-item">
                 <Reveal>
-                  <p className="mono tl-period">{job.period}</p>
+                  <p className="mono tl-period">
+                    {job.period}{job.since && ` · ${experienceLabel(job.since)}`}
+                  </p>
                   <h3 className="h5">
                     {job.role}
                     {profile.showCompany && <span className="text-body-secondary"> · {job.company}</span>}

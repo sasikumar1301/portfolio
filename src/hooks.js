@@ -13,13 +13,16 @@ export function spotlight(e) {
   e.currentTarget.style.setProperty("--y", `${e.clientY - r.top}px`);
 }
 
-// "2025-05" → "1.5+ yrs" (rounded down to the nearest half year).
+// "2025-05" → "1.6+ years" in November 2026 (years.months shorthand).
 export function experienceLabel(start, now = new Date()) {
   const [y, m] = start.split("-").map(Number);
-  const months = (now.getFullYear() - y) * 12 + now.getMonth() + 1 - m;
-  if (months < 12) return `${Math.max(months, 1)} mo`;
-  const yrs = Math.floor(months / 6) / 2;
-  return `${yrs}+ yr${yrs > 1 ? "s" : ""}`;
+  const totalMonths = Math.max((now.getFullYear() - y) * 12 + now.getMonth() + 1 - m, 0);
+  if (totalMonths === 0) return "Less than 1 month";
+
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+  if (!years) return `${months}+ month${months === 1 ? "" : "s"}`;
+  return `${years}${months ? `.${months}` : ""}+ years`;
 }
 
 // Theme lives on <html data-bs-theme>; index.html sets it before paint. Only explicit choices are saved.

@@ -1,4 +1,4 @@
-import { about, facts, sections, stats } from "../data";
+import { about, facts, profile, sections, stats } from "../data";
 import { experienceLabel, useCountUp, useInView } from "../hooks";
 import { Reveal } from "./ui";
 
@@ -18,6 +18,7 @@ function Stat({ value, label, hint, run }) {
 
 export default function Tldr() {
   const [ref, seen] = useInView();
+  const experience = experienceLabel(profile.startDate);
   return (
     <section id="tldr" className="container" aria-labelledby="tldr-title">
       <Reveal className="glass tldr">
@@ -31,7 +32,7 @@ export default function Tldr() {
             </div>
           ))}
         </dl>
-        <p className="about">{about.join(" ")}</p>
+        <p className="about">{about.map((text) => text.replace("{experience}", experience)).join(" ")}</p>
         <ul ref={ref} className="row g-3 list-unstyled mb-0">
           {stats.map((s) => <Stat key={s.label} {...s} run={seen} />)}
         </ul>

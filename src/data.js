@@ -11,10 +11,12 @@ export const profile = {
   headline: "Software Engineer, Full-Stack and Backend (Python, React)",
   location: "Ananthapur, India",
   email: "karikutisasikumar1301@gmail.com",
+  phone: "9390252572",
+  phoneHref: "+919390252572",
   linkedin: "https://www.linkedin.com/in/sasikumar1301/",
   github: "https://github.com/sasikumar1301",
-  resumeUrl: `${BASE}resume.pdf`, // TODO: replace public/resume.pdf (placeholder). Remove the phone number first.
-  photo: `${BASE}images/pic.svg`, // TODO: add public/images/pic.webp (≤100 KB, square) and point this to it.
+  resumeUrl: `${BASE}resume.pdf`,
+  photo: `${BASE}images/Sasikumar_k.jpeg`,
   startDate: "2025-05",
   showCompany: true, // set false to hide the employer name in Experience
   workStyle: "Remote-friendly",
@@ -34,7 +36,7 @@ export const hero = {
 };
 
 export const about = [
-  "Software Engineer with 1+ year of experience building Python/FastAPI backends, React front ends, and automated data pipelines on PostgreSQL and SQLite.",
+  "Software Engineer with {experience} of experience building Python/FastAPI backends, React front ends, and automated data pipelines on PostgreSQL and SQLite.",
   "Deploys and troubleshoots services on Linux and edge devices (Raspberry Pi, NVIDIA Jetson Orin Nano).",
   "Owns work end to end, from data validation to deployment. Open to remote roles.",
 ];
@@ -71,16 +73,21 @@ export const ui = {
   terminalTitle: "sample run · synthetic data",
   education: "Education",
   certifications: "Certifications",
-  contactBlurb: "Hiring for a backend, edge vision AI, or full-stack role? Send a message or reach out directly.",
+  contactBlurb: "Looking for a software engineer who can own problems end to end—from architecture and backend systems to AI-powered features and polished user experiences? Send a message or reach out directly.",
   form: { name: "Name", email: "Email", message: "Message", send: "Send message", sending: "Sending…", copy: "Copy email address", copied: "Email copied" },
   errors: { name: "Please enter your name.", email: "Please enter a valid email address.", message: "Please write at least 10 characters." },
   mailSubject: (name) => `Portfolio contact from ${name}`,
   sent: "Thanks. Your message is on its way.",
   failed: "Couldn't send right now. Please email me directly at",
   mailtoNote: "Opening your email app…",
-  credit: "Designed and built by Sasi Kumar",
-  updated: "Last updated",
   top: "Back to top",
+  footer: {
+    tagline: "Building reliable software from idea to production.",
+    cta: "Start a conversation",
+    explore: "Explore",
+    connect: "Connect",
+    rights: "All rights reserved.",
+  },
   palette: {
     placeholder: "Type a command or search…", empty: "No matches", go: "Go to", open: "Project", act: "Action",
     resume: "Download resume", email: "Copy email", theme: "Toggle theme", linkedin: "Open LinkedIn", github: "Open GitHub",
@@ -318,6 +325,7 @@ export const experience = [
     role: "Software Engineer",
     company: "V-Optimaise Climate Tech Solutions",
     period: "May 2025 – Present",
+    since: profile.startDate,
     points: [
       "Built and maintain a Python data automation platform that ingests, validates, and stores multi-source data in PostgreSQL, using profile-based workflows for each source format.",
       "Designed PostgreSQL and SQLite schemas and SQL queries; integrated REST APIs between internal systems and external data sources.",

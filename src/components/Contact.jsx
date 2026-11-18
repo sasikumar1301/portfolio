@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FiCheck, FiCopy, FiGithub, FiLinkedin, FiSend } from "react-icons/fi";
+import { FiCheck, FiCopy, FiGithub, FiLinkedin, FiPhone, FiSend } from "react-icons/fi";
 import { profile, sections, ui } from "../data";
 import { copyToClipboard } from "../hooks";
 import { Reveal, Section } from "./ui";
@@ -88,12 +88,16 @@ export default function Contact() {
         <Reveal className="col-lg-5">
           <div className="glass p-4 h-100 d-grid gap-3 align-content-start">
             <p className="mb-0">{ui.contactBlurb}</p>
-            <div className="email-row">
+            <div className="contact-row">
               <a href={`mailto:${profile.email}`} className="mono">{profile.email}</a>
               <button type="button" className="btn-icon" onClick={copyEmail} aria-label={ui.form.copy}>
                 {copied ? <FiCheck aria-hidden="true" /> : <FiCopy aria-hidden="true" />}
               </button>
               <span role="status" className="visually-hidden">{copied ? ui.form.copied : ""}</span>
+            </div>
+            <div className="contact-row">
+              <FiPhone aria-hidden="true" />
+              <a href={`tel:${profile.phoneHref}`} className="mono">{profile.phone}</a>
             </div>
             <div className="d-flex flex-wrap gap-2">
               <a className="btn btn-ghost" href={profile.linkedin} {...ext}><FiLinkedin aria-hidden="true" /> LinkedIn</a>
