@@ -52,9 +52,6 @@ export default function Hero() {
             <div className="photo-frame">
               <img src={profile.photo} alt={hero.photoAlt} width="380" height="380" decoding="async" />
             </div>
-            {hero.chips.map((c, k) => (
-              <span key={c} className={`float-chip mono c${k}`} style={{ "--d": `${k * -1.2}s` }} aria-hidden="true">{c}</span>
-            ))}
           </div>
         </div>
       </div>

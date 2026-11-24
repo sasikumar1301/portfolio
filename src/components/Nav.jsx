@@ -2,11 +2,11 @@ import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FiDownload, FiMenu, FiMoon, FiSun } from "react-icons/fi";
 import { nav, profile, ui } from "../data";
-import { isMac, useScrollProgress, useScrollSpy } from "../hooks";
+import { useScrollProgress, useScrollSpy } from "../hooks";
 
 const SPY_IDS = ["top", "tldr", ...nav.map((n) => n.id)];
 
-export default function Nav({ theme, onTheme, onPalette }) {
+export default function Nav({ theme, onTheme }) {
   const [open, setOpen] = useState(false);
   const active = useScrollSpy(SPY_IDS);
   const bar = useScrollProgress();
@@ -29,9 +29,6 @@ export default function Nav({ theme, onTheme, onPalette }) {
           {profile.initials}<span aria-hidden="true">_</span>
         </a>
         <ul className="nav-links d-none d-md-flex list-unstyled m-0 me-2">{links("nav-link-hud")}</ul>
-        <button type="button" className="btn-icon" onClick={onPalette} aria-label="Open command palette" aria-keyshortcuts="Control+K Meta+K /">
-          <kbd>{isMac ? "⌘" : "Ctrl"} K</kbd>
-        </button>
         <button type="button" className="btn-icon" onClick={onTheme} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}>
           {theme === "dark" ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
         </button>

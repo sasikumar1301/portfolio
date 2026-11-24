@@ -4,6 +4,7 @@ import { projects } from "./data";
 import { scrollToId, useHash, useTheme } from "./hooks";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import TechMarquee from "./components/TechMarquee";
 import Tldr from "./components/Tldr";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
@@ -49,9 +50,10 @@ export default function App() {
     <LazyMotion features={domAnimation} strict>
       <a className="skip-link" href="#main">Skip to content</a>
       <NetworkBg theme={theme} />
-      <Nav theme={theme} onTheme={toggleTheme} onPalette={() => setPalette(true)} />
+      <Nav theme={theme} onTheme={toggleTheme} />
       <main id="main" tabIndex={-1}>
         <Hero />
+        <TechMarquee />
         <Tldr />
         <Projects filter={filter} setFilter={setFilter} onOpen={openProject} />
         <Skills filter={filter} setFilter={setFilter} />

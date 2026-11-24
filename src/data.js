@@ -31,8 +31,53 @@ export const hero = {
   accent: "see, schedule, and report.",
   sub: "Software Engineer: Python backends, edge vision AI, and React interfaces for the process industry.",
   roles: ["Backend Engineer", "Vision AI at the edge", "Full-Stack (React)"],
-  chips: ["FastAPI", "PostgreSQL", "YOLO", "Jetson", "React"],
   photoAlt: "Portrait of Sasi Kumar Karikuti",
+};
+
+export const techStack = {
+  caption: "stack // backend / full-stack / CI/CD / deployment",
+  rows: [
+    {
+      label: "Backend & full-stack",
+      direction: "left",
+      duration: "45s",
+      items: [
+        { name: "Python", icon: "SiPython", color: "#3776AB" },
+        { name: "FastAPI", icon: "SiFastapi", color: "#009688" },
+        { name: "Pydantic", icon: "SiPydantic", color: "#E92063" },
+        { name: "PostgreSQL", icon: "SiPostgresql", color: "#4169E1" },
+        { name: "SQLite", icon: "SiSqlite", color: "#003B57", darkColor: "currentColor" },
+        { name: "REST APIs", icon: "TbApi" },
+        { name: "SQL", icon: "TbSql" },
+        { name: "JavaScript", icon: "SiJavascript", color: "#F7DF1E", lightColor: "currentColor" },
+        { name: "React", icon: "SiReact", color: "#61DAFB", lightColor: "currentColor" },
+        { name: "Vite", icon: "SiVite", color: "#646CFF" },
+        { name: "Bootstrap", icon: "SiBootstrap", color: "#7952B3" },
+        { name: "HTML5", icon: "SiHtml5", color: "#E34F26" },
+        { name: "CSS3", icon: "SiCss3", color: "#1572B6" },
+        { name: "uv", icon: "SiUv", color: "#DE5FE9", lightColor: "currentColor" },
+      ],
+    },
+    {
+      label: "CI/CD, deploy & edge",
+      direction: "right",
+      duration: "55s",
+      items: [
+        { name: "Git", icon: "SiGit", color: "#F05032" },
+        { name: "GitHub", icon: "SiGithub" },
+        { name: "GitHub Actions", icon: "SiGithubactions", color: "#2088FF" },
+        { name: "Cloudflare", icon: "SiCloudflare", color: "#F38020", lightColor: "currentColor" },
+        { name: "Hostinger", icon: "SiHostinger", color: "#673DE6" },
+        { name: "Docker", icon: "SiDocker", color: "#2496ED", lightColor: "currentColor", level: "familiar" },
+        { name: "Linux", icon: "SiLinux", color: "#FCC624", lightColor: "currentColor" },
+        { name: "Bash", icon: "SiGnubash", color: "#4EAA25", lightColor: "currentColor" },
+        { name: "systemd", icon: "LuCog" },
+        { name: "cron", icon: "TbClockHour4" },
+        { name: "Raspberry Pi 5", icon: "SiRaspberrypi", color: "#A22846", darkColor: "currentColor" },
+        { name: "Jetson Orin Nano", icon: "SiNvidia", color: "#76B900", lightColor: "currentColor" },
+      ],
+    },
+  ],
 };
 
 export const about = [

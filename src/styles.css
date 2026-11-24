@@ -71,7 +71,6 @@ body::before {
   border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--fg); text-decoration: none; transition: border-color 0.2s;
 }
 .btn-icon:hover { border-color: var(--cyan); color: var(--fg); }
-.btn-icon kbd { padding: 0; background: none; color: var(--muted); font-size: 0.72rem; }
 .btn { transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s, border-color 0.2s; }
 .btn-hud, .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 12px; font-weight: 600; --bs-btn-padding-x: 1.1rem; --bs-btn-padding-y: 0.6rem; }
 .btn-hud {
@@ -138,12 +137,35 @@ body::before {
     linear-gradient(transparent 44%, rgba(34, 211, 238, 0.16) 50%, transparent 56%);
   background-size: auto, 100% 250%; animation: scan 5s linear infinite;
 }
-.float-chip {
-  position: absolute; padding: 0.35rem 0.7rem; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap;
-  background: color-mix(in srgb, var(--bg) 78%, transparent); backdrop-filter: blur(8px); font-size: 0.74rem;
-  animation: float 6s ease-in-out var(--d) infinite;
+/* ===== Tech stack marquee ===== */
+.tech-marquee-section { width: 100%; padding-top: 1rem; overflow: clip; }
+.tech-marquee-caption { margin-bottom: 1rem; color: var(--cyan); font-size: 0.8rem; letter-spacing: 0.04em; }
+.tech-marquee-row { height: 5.4rem; }
+.tech-marquee-label { margin-bottom: 0.4rem; color: var(--muted); font-size: 0.72rem; }
+.tech-marquee-window {
+  height: 3.25rem; overflow: hidden; contain: layout paint;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
 }
-.c0 { top: 8%; left: -12%; } .c1 { top: 22%; right: -12%; } .c2 { bottom: 24%; left: -16%; } .c3 { bottom: 5%; right: -6%; } .c4 { top: -4%; left: 42%; }
+.tech-marquee-track {
+  display: flex; align-items: center; width: max-content; height: 100%; will-change: transform;
+  animation: tech-marquee-scroll var(--marquee-duration) linear infinite;
+}
+.tech-marquee-row.reverse .tech-marquee-track { animation-direction: reverse; }
+.tech-marquee-window:hover .tech-marquee-track, .tech-marquee-window:focus-within .tech-marquee-track { animation-play-state: paused; }
+.tech-marquee-list { display: flex; flex: none; align-items: center; margin: 0; padding: 0; list-style: none; }
+.tech-marquee-item { flex: none; padding-inline: 0.35rem; }
+.tech-pill {
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.5rem; padding: 0.45rem 0.8rem;
+  border-radius: 999px; color: var(--fg); white-space: nowrap; transition: border-color 0.2s, transform 0.2s;
+}
+.tech-pill.glass { backdrop-filter: none; }
+.tech-pill.familiar { border-style: dashed; }
+.tech-pill:hover { border-color: var(--cyan); transform: translateY(-1px); }
+.tech-icon { display: block; flex: 0 0 22px; width: 22px; height: 22px; }
+.tech-pill .mono { font-size: 0.8rem; }
+[data-bs-theme="dark"] .tech-icon { color: var(--tech-color-dark); }
+[data-bs-theme="light"] .tech-icon { color: var(--tech-color-light); }
 
 /* ===== TL;DR ===== */
 .tldr { padding: clamp(1.25rem, 3vw, 2.25rem); }
@@ -268,12 +290,17 @@ body::before {
 /* ===== Keyframes & motion preferences ===== */
 @keyframes blink { 50% { opacity: 0; } }
 @keyframes ping { 0% { box-shadow: 0 0 0 0 var(--lime); } 70%, 100% { box-shadow: 0 0 0 8px transparent; } }
-@keyframes float { 50% { transform: translateY(-10px); } }
 @keyframes scan { from { background-position: 0 0, 0 100%; } to { background-position: 0 0, 0 0; } }
 @keyframes spin { to { --a: 360deg; } }
 @keyframes type { from { clip-path: inset(0 100% 0 0); } }
-@media (max-width: 575.98px) { .c0, .c2 { left: -6%; } .c1, .c3 { right: -6%; } }
+@keyframes tech-marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
+  .tech-marquee-row { height: auto; margin-bottom: 1rem; }
+  .tech-marquee-window { height: auto; overflow: visible; contain: none; -webkit-mask-image: none; mask-image: none; }
+  .tech-marquee-track { width: 100%; }
+  .tech-marquee-list { flex-wrap: wrap; justify-content: center; width: 100%; }
+  .tech-marquee-list[aria-hidden="true"] { display: none; }
+  .tech-marquee-item { padding-block: 0.3rem; }
 }
